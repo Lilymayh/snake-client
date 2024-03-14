@@ -1,28 +1,25 @@
 const net = require("net");
 
+let connection;
+
 const connect = function() {
-	const conn = net.createConnection({
+	connection = net.createConnection({
 		host: "165.227.47.243",// IP address here,
 		port: 50541,// POsRT number here,
 	});
 
-	conn.on("connect", () => {
+	connection.on("connect", () => {
 		console.log("Name: LLY")
 	})
 
-	conn.on("data", () => {
-		console.log("Move: up")
-		conn.write("Move: up")
-	})	
-
-	conn.on("data", (data) => {
+	connection.on("data", (data) => {
 		console.log("Server says: ", data);
 	});
 
 	// interpret incoming data as text
-	conn.setEncoding("utf8");
+	connection.setEncoding("utf8");
 
-	return conn;
+	return connection;
 };
 
 
