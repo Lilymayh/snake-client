@@ -10,6 +10,11 @@ const connect = function() {
 		console.log("Name: LLY")
 	})
 
+	conn.on("data", () => {
+		console.log("Move: up")
+		conn.write("Move: up")
+	})	
+
 	conn.on("data", (data) => {
 		console.log("Server says: ", data);
 	});
