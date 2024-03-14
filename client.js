@@ -10,7 +10,7 @@ const connect = function() {
 
 	connection.on("connect", () => {
 		console.log("Name: LLY")
-	})
+	});
 
 	connection.on("data", (data) => {
 		console.log("Server says: ", data);
