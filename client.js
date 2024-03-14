@@ -1,8 +1,14 @@
+const net = require("net");
+
 const connect = function() {
 	const conn = net.createConnection({
 		host: "165.227.47.243",// IP address here,
 		port: 50541,// POsRT number here,
 	});
+
+	conn.on("connect", () => {
+		console.log("Name: LLY")
+	})
 
 	conn.on("data", (data) => {
 		console.log("Server says: ", data);
@@ -13,5 +19,6 @@ const connect = function() {
 
 	return conn;
 };
+
 
 module.exports = connect
